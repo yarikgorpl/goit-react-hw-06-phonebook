@@ -5,13 +5,17 @@ const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
+        backgroundColor: 'rgb(133 70 234 / 45%)',
+        width: '560px',
+        height: 'auto',
+        margin: '0 auto',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
         color: '#010101',
         flexDirection: 'column',
+        borderRadius: '8px',
       }}
     >
       <h1>Phonebook</h1>

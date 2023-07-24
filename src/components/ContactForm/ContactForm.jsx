@@ -24,7 +24,7 @@ const ContactForm = () => {
     });
   };
 
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.data);
   const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
@@ -59,6 +59,7 @@ const ContactForm = () => {
           type="text"
           value={formData.name}
           name="name"
+          placeholder="Enter contact name"
           onChange={handleInputChange}
           pattern="^[a-zA-Z\s]+$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -72,6 +73,7 @@ const ContactForm = () => {
           type="tel"
           name="number"
           value={formData.number}
+          placeholder="Enter contact number"
           onChange={handleInputChange}
           pattern="^[0-9]+$"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import shortid from 'shortid';
-const contactsInitialState = [];
+const contactsInitialState = { data: [] };
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -8,7 +8,7 @@ export const contactsSlice = createSlice({
   reducers: {
     addContact: {
       reducer(state, action) {
-        return [...state, action.payload];
+        state.data.push(action.payload);
       },
       prepare(nameValue, numberValue) {
         return {
@@ -22,7 +22,7 @@ export const contactsSlice = createSlice({
     },
     deleteContact(state, action) {
       const contactId = action.payload;
-      return state.filter(contact => contact.id !== contactId);
+      state.data = state.data.filter(contact => contact.id !== contactId);
     },
   },
 });

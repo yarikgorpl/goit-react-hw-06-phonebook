@@ -7,7 +7,7 @@ import { filterContacts } from 'redux/filterSlice';
 
 import { Contact } from 'components/Contact/Contact';
 const ContactList = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.data);
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const ContactList = () => {
   return (
     <>
       <Filter onChange={handleFilterChange} />
-      <ul>
+      <ul className={css.list}>
         {filteredContacts.map(contact => (
           <li key={contact.id} className={css.item}>
             <Contact contact={contact} />
